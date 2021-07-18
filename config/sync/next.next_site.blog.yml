@@ -1,0 +1,9 @@
+uuid: 91193568-d4d7-4b8d-8913-33a2338d1643
+langcode: en
+status: true
+dependencies: {  }
+id: blog
+label: Blog
+base_url: 'http://localhost:300'
+preview_url: 'http://localhost:3000/api/preview'
+preview_secret: preview-secret

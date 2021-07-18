@@ -1,0 +1,14 @@
+uuid: 5991cf97-5246-4030-a749-e7a1f7059ca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.next_blog
+  module:
+    - user
+id: user_add_role_action.next_blog
+label: 'Add the Next blog role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: next_blog

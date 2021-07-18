@@ -1,0 +1,14 @@
+uuid: 7729c868-227d-4b45-b6c7-cdf2fbba619a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.next_blog
+  module:
+    - user
+id: user_remove_role_action.next_blog
+label: 'Remove the Next blog role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: next_blog

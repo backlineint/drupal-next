@@ -1,0 +1,10 @@
+uuid: e50e785c-f36d-4438-b3e7-2d85af8adb65
+langcode: en
+status: true
+dependencies: {  }
+id: node.article
+site_resolver: site_selector
+configuration:
+  field_name: {  }
+  sites:
+    blog: blog

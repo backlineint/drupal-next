@@ -802,4 +802,5 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
-$settings['config_sync_directory'] = 'sites/default/files/config_pdqxh4vdOPXj73WjOVdnIuqxVyK-4w0KAO0RWV_Baz3ruzUe2hcjaxLSMl-Rp2vBGPB5vXgudg/sync';
+
+$settings['config_sync_directory'] = '../config/sync';

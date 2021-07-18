@@ -1,0 +1,12 @@
+uuid: 158edede-60bf-484a-bc87-4f942bf86ca3
+langcode: en
+status: true
+dependencies: {  }
+id: next_blog
+label: 'Next blog'
+weight: 3
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'bypass node access'
+  - 'issue subrequests'
