@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: blog
 label: Blog
-base_url: 'http://localhost:300'
+base_url: 'http://localhost:3000'
 preview_url: 'http://localhost:3000/api/preview'
 preview_secret: preview-secret
