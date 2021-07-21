@@ -1,0 +1,7 @@
+name: Next Embedded
+description: POC of what an embedded mode would look like as a Drupal Next SitePreviewer
+package: Custom
+
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9
