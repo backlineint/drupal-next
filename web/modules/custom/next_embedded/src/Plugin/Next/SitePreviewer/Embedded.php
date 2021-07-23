@@ -24,17 +24,32 @@ class Embedded extends SitePreviewerBase {
 
     // TODO - Construct request URL dynamically
     $client = \Drupal::httpClient();
-    $response = $client->request('GET', 'http://10.8.12.244:3000/blog/example-article');
-  
-    list($head, $rest) = preg_split('/(?=<\/head>)/', $response->getBody());
-    list($body, $end) = preg_split('/(?=<\/body>)/', $rest);
+    // TODO - In future this should come from config
+    $base = "http://192.168.7.149:3000";
+    $response = $client->request('GET', $base . '/blog/example-article');
+
+    // Parse the response so we can embed the dom elements we need
+    $dom = new \DOMDocument();
+    // Using @ to supress warnings due to DOMDocument() thinking html5 elements are invalid
+    @$dom->loadHTML($response->getBody());
+    $next_body = $dom->getElementById('__next');
+    $styles = $dom->getElementsByTagName('link');
+
+    foreach ($styles as $style) {
+      // Create a link element for the stylesheet
+      $link_description = [
+        'rel' => 'stylesheet',
+        'href' => $base . $style->getAttribute('href'),
+      ];
+
+     // Add the link tag to the head
+     $attachments['#attached']['html_head_link'][] = [$link_description];
+    }
 
     foreach ($sites as $site) {
       $build[] = [
-        // '#type' => 'link',
-        // '#title' => $this->t('Open preview'),
-        // '#url' => $site->getPreviewUrlForEntity($entity),
-        '#markup' => $body,
+        '#markup' => $dom->saveHTML($next_body),
+        $attachments
       ];
     }
 
