@@ -20,13 +20,19 @@ class Embedded extends SitePreviewerBase {
    * {@inheritdoc}
    */
   public function render(EntityInterface $entity, array $sites) {
+    // Todos
+    // Try to fix caching issues - Defer?
+    // See if you can run in dev mode - Defer? Or maybe get scripts?
+    // Resolve styling conflicts
+
     $build = [];
 
     // TODO - Construct request URL dynamically
     $client = \Drupal::httpClient();
     // TODO - In future this should come from config
     $base = "http://192.168.7.149:3000";
-    $response = $client->request('GET', $base . '/blog/example-article');
+    $uri = \Drupal::request()->getRequestUri();
+    $response = $client->request('GET', $base . $uri);
 
     // Parse the response so we can embed the dom elements we need
     $dom = new \DOMDocument();
